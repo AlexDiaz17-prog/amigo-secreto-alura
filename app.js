@@ -1,4 +1,6 @@
 let amigos = [];
+let numeroSorteo = 0;
+
 
 
 function agregarAmigo (){
@@ -12,7 +14,7 @@ function agregarAmigo (){
         return;
     }
     //añadimos el valor al arreglo
-    amigos.push(nuevoAmigoTexto + "   " + "🤟");
+    amigos.push(nuevoAmigoTexto);
     //limpiamos barra
     document.getElementById("amigo").value = "";
 
@@ -21,7 +23,7 @@ function agregarAmigo (){
     //limpiamos lista existente
     lista.innerHTML = "";
 
-    
+    //ciclo para mostrar los nombres del arreglo
 
     for (let i = 0; i < amigos.length; i++){
         let valorLista = document.createElement("li");//crea elemento de lista
@@ -30,7 +32,54 @@ function agregarAmigo (){
 
     }
 
+
+    
+
+}
+
+
+
+function sortearAmigo () {
+    if (amigos.length == 0) {
+        alert("No hay amigos por sortear");
+        return;
+    }else{
+        //miltiplicamos por amigos.lenght para que nos de los valores desde "0", hasta el ultimo numero del areglo
+     let numeroSorteo = Math.floor(Math.random () * amigos.length ); 
+     console.log(amigos[numeroSorteo]);
+     
+   
+    }
+
+    let lista = document.getElementById("listaAmigos");
+    lista.innerHTML = "";
+
+    let lista2 = document.getElementById("resultado");
+     lista.innerHTML = "";
+
+     let valorListaResultado = document.createElement("li");
+     valorListaResultado.textContent= (` Tu amigo secreto es :  ${amigos[numeroSorteo]}`);
+     lista2.appendChild(valorListaResultado);
+
+
+
+
+
+
+
     
 
 
+
+
+
+
+
+
+
+
+
 }
+
+
+

@@ -13,6 +13,8 @@ function agregarAmigo(){
         return;
     } if(arrayAmigos.includes(amigoTexto)){
     alert("Ese nombre ya esta en la lista")
+
+    document.getElementById("amigo").value= "";
     return;
   }
 

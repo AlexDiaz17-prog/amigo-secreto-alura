@@ -1,85 +1,41 @@
-let amigos = [];
-let numeroSorteo = 0;
+let arrayAmigos = [];
 
 
 
-function agregarAmigo (){
-    //creamos una variable auxiliar para guardar el valor dentro del input
-    //usaremos .value para obtener el valor ingresado
-    let nuevoAmigoTexto = document.getElementById("amigo").value;
 
-    //verificaremos que el campo no este vacio
-    if (nuevoAmigoTexto === ""){
-        alert("Por favor, ingrese un nombre");
+//definimos funcion 
+function agregarAmigo(){
+    let amigoTexto = document.getElementById("amigo").value; //obtenemos valor
+    console.log(amigoTexto);
+     //agregamos condicion de espacios en blanco
+    if (amigoTexto === ""){
+        alert("ingresa un nombre");
         return;
-    }
-    //añadimos el valor al arreglo
-    amigos.push(nuevoAmigoTexto);
-    //limpiamos barra
-    document.getElementById("amigo").value = "";
+    } if(arrayAmigos.includes(amigoTexto)){
+    alert("Ese nombre ya esta en la lista")
+    return;
+  }
 
-    //llamamos lista
-    let lista = document.getElementById("listaAmigos");
-    //limpiamos lista existente
-    lista.innerHTML = "";
+  arrayAmigos.push(amigoTexto);//introduciomos valor al arreglo
+  console.log(arrayAmigos);
 
-    //ciclo para mostrar los nombres del arreglo
+   document.getElementById("amigo").value = "";//borramos el texto obtenido
+  /* vamos a agregar el valor a la lista para que se muestre en pantalla
+  para ello :
+  llamalos la lista
+  borramos su contenido 
+  hacemos un arreglo for para ir mostrando los valores del arreglo*/
 
-    for (let i = 0; i < amigos.length; i++){
-        let valorLista = document.createElement("li");//crea elemento de lista
-        valorLista.textContent= amigos[i]; //agrega el nombre del amigo como texto
-        lista.appendChild(valorLista);
+  let lista = document.getElementById("listaAmigos");
+  lista.innerHTML = ""; 
 
-    }
+  for (let i = 0; i < arrayAmigos.length; i++ ){
+    let valorListaNombres = document.createElement("li");
+    valorListaNombres.textContent = arrayAmigos[i];
+    lista.appendChild(valorListaNombres);
 
+    console.log(arrayAmigos[i]);
 
-    
+  }
 
 }
-
-
-
-function sortearAmigo () {
-    if (amigos.length == 0) {
-        alert("No hay amigos por sortear");
-        return;
-    }else{
-        //miltiplicamos por amigos.lenght para que nos de los valores desde "0", hasta el ultimo numero del areglo
-     let numeroSorteo = Math.floor(Math.random () * amigos.length ); 
-     console.log(amigos[numeroSorteo]);
-     
-   
-    }
-
-    let lista = document.getElementById("listaAmigos");
-    lista.innerHTML = "";
-
-    let lista2 = document.getElementById("resultado");
-     lista.innerHTML = "";
-
-     let valorListaResultado = document.createElement("li");
-     valorListaResultado.textContent= (` Tu amigo secreto es :  ${amigos[numeroSorteo]}`);
-     lista2.appendChild(valorListaResultado);
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-}
-
-
-

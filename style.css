@@ -146,7 +146,7 @@ ul {
 .button-draw {
     display: flex;
     align-items: center;
-    width: 100%;
+    /*width: 100%; */
     padding: 10px 40px;
     color: var(--color-white);
     background-color: var(--color-button);
@@ -159,4 +159,28 @@ ul {
 
 .button-draw:hover {
     background-color: var(--color-button-hover);
+}
+
+
+.button-reset {
+    display: flex;
+    align-items: center;
+   /* width: 100%; */
+    padding: 10px 40px;
+    color: var(--color-white);
+    background-color: var(--color-button);
+    font-size: 16px;
+ 
+}
+
+.button-reset:hover {
+ margin-right: 40px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;
+  gap: 16px; /* espacio entre los botones */
+  flex-wrap: wrap; /* por si en pantallas pequeñas no cabe todo en una línea */
 }
